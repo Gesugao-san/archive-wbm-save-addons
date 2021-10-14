@@ -1,8 +1,22 @@
 javascript: (function() {
     var debugOn = true;
     if (debugOn) {alert("Bookmarklet start executing.")};
+    var text = "Example text to appear on clipboard";
+    navigator.permissions.query({name: "clipboard-write"}).then(result => {
+        if (result.state == "granted" || result.state == "prompt") {
+            navigator.clipboard.writeText(text).then(function() {
+                console.log('Async: Copying to clipboard was successful!');
+            }, function(err) {
+                console.error(err);
+            });
+        } else {
+            var msg = "Error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
+            alert(msg);
+            console.error(msg)};
+        });
+    });
     if (this.document.location.href != "https://web.archive.org/save/") {
-        if (debugOn) {alert("User is not on WBM. Opening WBM and stoping executing.")};
+        if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
         var targetWBM = location.href;
         var newWindow = window.open('');
         /* newWindow.document.write('<html><head><title>New TAB</tit' + 'le>'); */
