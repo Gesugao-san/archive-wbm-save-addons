@@ -23,7 +23,11 @@ https://stackoverflow.com/a/26370667;
 
 # To read or use soon
 
-https://gist.github.com/caseywatts/c0cec1f89ccdb8b469b1;
+https://gist.github.com/caseywatts/c0cec1f89ccdb8b469b1#gistcomment-2250172;
+
+https://stackoverflow.com/q/49523946;
+
+https://stackoverflow.com/a/26370667;
 
 ---
 
