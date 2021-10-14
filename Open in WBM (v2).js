@@ -1,6 +1,6 @@
 javascript: (function() {
     var debugOn = true;
-    if (debugOn) {console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.")};
+    if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
 
     if (this.document.location.href != "https://web.archive.org/save/") {
         console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
@@ -69,8 +69,9 @@ javascript: (function() {
         });
     } else {
         /* nope 😢. Use execCommand or leave the feature off */
+        console.error("Fatal error: navigator.clipboard is not avaliable, exiting.")
     };
 
-    console.log("Bookmarklet stops executing.");
+    if (debugOn) console.log("Bookmarklet stops executing.");
     return false;
 })();
