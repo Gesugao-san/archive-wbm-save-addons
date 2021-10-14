@@ -1,15 +1,13 @@
 javascript: (function() {
     var debugOn = true;
-    /* https://stackoverflow.com/q/11292786; https://stackoverflow.com/a/8206573; https://stackoverflow.com/a/11604414 */
     if (debugOn) {alert("Bookmarklet start executing.")};
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {alert("User is not on WBM. Opening WBM and stoping executing.")};
         var targetWBM = location.href;
         var newWindow = window.open('https://web.archive.org/save/');
         newWindow.document.write('<html><head><title>New TAB</tit' + 'le>');
-        newWindow.document.write('</he' + 'ad><body>');
-        newWindow.document.write(html);
-        newWindow.document.write('</bo' + 'dy></ht' + 'ml>');
+        newWindow.document.write('</he' + 'ad>')
+        newWindow.document.write('<input type="hidden" id="myField" value="" /><body>')
         newWindow.document.close();
         newWindow.focus();
         // this.document.location.href = "https://web.archive.org/save/";
