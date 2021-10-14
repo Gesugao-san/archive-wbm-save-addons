@@ -4,15 +4,6 @@ javascript: (function() {
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
-            var text = "Example text to appear on clipboard";
-            var copyFrom = document.createElement("textarea");
-            console.log('Copying to clipboard.');
-            copyFrom.textContent = text;
-            document.body.appendChild(copyFrom);
-            copyFrom.select();
-            document.execCommand('copy');
-            copyFrom.blur();
-            document.body.removeChild(copyFrom);
             /*
             navigator.clipboard.writeText(text).then(function() {
                 console.log('Async: Copying to clipboard was successful!');
@@ -23,9 +14,20 @@ javascript: (function() {
         } else {
             var msg = "Error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
             alert(msg);
-            console.error(msg)
+            console.error(msg);
+            return false;
         };
     });
+
+    var text = "Example text to appear on clipboard";
+    var copyFrom = document.createElement("textarea");
+    console.log('Copying to clipboard.');
+    copyFrom.textContent = text;
+    document.body.appendChild(copyFrom);
+    copyFrom.select();
+    document.execCommand('copy');
+    copyFrom.blur();
+    document.body.removeChild(copyFrom);
     
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
