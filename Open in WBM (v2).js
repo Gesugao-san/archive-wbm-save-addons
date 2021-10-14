@@ -60,9 +60,11 @@ javascript: (function() {
         navigator.clipboard.readText()
         .then(text => {
             /* `text` contains the text read from the clipboard */
-            console.error("Clipboard content: ", text);
-            if (str.slice(0, 4)) {
-                
+            console.warn("Clipboard content: ", text);
+            if (text.slice(0, 4) == "http") {
+                console.log("Clipboard content is URl.");
+            } else {
+                console.error("Clipboard content is not valid URl.");
             }
             document.getElementById('web-save-url-input').value = text;
         })
