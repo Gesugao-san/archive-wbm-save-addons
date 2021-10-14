@@ -41,7 +41,9 @@ javascript: (function() {
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
         console.log("User is on WBM. Ticking boxes.");
         /* document.getElementById("web-save-url-input").value = targetUrl; */
-        document.getElementById("web-save-url-input").focus();
+        var urlInput = document.getElementById("web-save-url-input")
+        urlInput.focus();
+        urlInput.select();
         if (document.execCommand('paste')) {
             document.getElementById("web-save-url-input").val();
         }
