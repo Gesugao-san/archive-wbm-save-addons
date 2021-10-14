@@ -1,5 +1,5 @@
 javascript: (function() {
-    var debugOn = true;
+    var debugOn = false;
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
 
