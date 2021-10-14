@@ -42,7 +42,7 @@ javascript: (function() {
         console.log("User is on WBM. Ticking boxes.");
         /* document.getElementById("web-save-url-input").value = targetUrl; */
         document.getElementById("web-save-url-input").focus();
-        document.execCommand("paste", null, null);
+        document.execCommand("paste");
         document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked; /* Save outlinks */
         document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked; /* Save error pages */
         document.getElementById("capture_screenshot").checked   = !document.getElementById("capture_screenshot").checked; /* Save screen shot */
