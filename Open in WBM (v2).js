@@ -1,6 +1,6 @@
 javascript: (function() {
     var debugOn = true;
-    if (debugOn) {alert("Bookmarklet start executing.")};
+    if (debugOn) {console.log("Bookmarklet start executing.")};
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
@@ -40,7 +40,7 @@ javascript: (function() {
         /* this.document.location.href = "https://web.archive.org/save/"; */
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
-        if (debugOn) {alert("User is on WBM. Ticking boxes.")};
+        if (debugOn) {console.log("User is on WBM. Ticking boxes.")};
         document.getElementById("web-save-url-input").value = targetUrl;
         document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
         document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
@@ -48,6 +48,6 @@ javascript: (function() {
         document.getElementById("wm-save-mywebarchive").checked = !document.getElementById("wm-save-mywebarchive").checked;
         document.getElementById("email_result").checked         = !document.getElementById("email_result").checked;
     }
-    alert("Bookmarklet stops executing.");
+    console.log("Bookmarklet stops executing.");
     return false;
 })();
