@@ -13,7 +13,7 @@ javascript: {
 		document.getElementById("wm-save-mywebarchive").checked = true;
 		document.getElementById("email_result").checked = true;
 	} else if (document.readyState === "complete") { // Wait for the page to finish loading
-		if (debugOn) {prompt("User is on WBM.", "")};
+		if (debugOn) {alert("User is on WBM.", "")};
 	    document.getElementById("web-save-url-input").value = targetUrl;
 		document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
 		document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
@@ -24,6 +24,7 @@ javascript: {
 	alert("Bookmarklet stops executing.", "");
 	void(0)
 }
+
 // Inspiration by:
 // https://caiorss.github.io/bookmarklet-maker/
 // https://mrcoles.com/bookmarklet/
