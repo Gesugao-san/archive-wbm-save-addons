@@ -57,5 +57,18 @@ javascript: (function() {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
     console.log("Bookmarklet stops executing.");
+    if (navigator.clipboard) {
+        // yep, turn the feature on.
+        navigator.clipboard.readText()
+        .then(text => {
+            // `text` contains the text read from the clipboard
+        })
+        .catch(err => {
+            // maybe user didn't grant access to read from clipboard
+            console.log('Something went wrong', err);
+        });
+    } else {
+        // nope 😢. Use execCommand or leave the feature off
+    }
     return false;
 })();
