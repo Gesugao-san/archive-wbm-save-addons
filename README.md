@@ -23,6 +23,8 @@ https://stackoverflow.com/a/59556399;
 
 https://stackoverflow.com/a/18455088;
 
+https://alligator.io/js/async-clipboard-api/;
+
 ---
 
 # To read or use soon
