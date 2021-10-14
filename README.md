@@ -35,6 +35,8 @@ https://www.w3schools.com/jsref/jsref_includes_array.asp;
 
 https://stackoverflow.com/q/34780030;
 
+https://stackoverflow.com/q/15694470;
+
 ---
 
 # To read or use soon
