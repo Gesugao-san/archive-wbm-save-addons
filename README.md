@@ -29,6 +29,8 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/St
 
 https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName;
 
+https://stackoverflow.com/a/3822931;
+
 ---
 
 # To read or use soon
