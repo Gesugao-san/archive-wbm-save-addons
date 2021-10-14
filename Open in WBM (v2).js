@@ -5,14 +5,17 @@ javascript: (function() {
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {alert("User is not on WBM. Opening WBM and stoping executing.")};
         var targetWBM = location.href;
-        localStorage.setItem('targetWBM', targetWBM);
-        window.open('https://web.archive.org/save/');
+        var newWindow = window.open('https://web.archive.org/save/');
+        newWindow.document.write('<html><head><title>New TAB</tit' + 'le>');
+        newWindow.document.write('</he' + 'ad><body>');
+        newWindow.document.write(html);
+        newWindow.document.write('</bo' + 'dy></ht' + 'ml>');
+        newWindow.document.close();
+        newWindow.focus();
         // this.document.location.href = "https://web.archive.org/save/";
         return false;
     } else if (document.readyState === "complete") { // Wait for the page to finish loading
         if (debugOn) {alert("User is on WBM.")};
-        let targetWBM = localStorage.getItem('targetWBM');
-        if (debugOn) {alert("targetWBM: " + targetWBM)};
         document.getElementById("web-save-url-input").value = targetUrl;
         document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
         document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
