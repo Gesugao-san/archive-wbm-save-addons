@@ -6,6 +6,7 @@ javascript: (function() {
         if (result.state == "granted" || result.state == "prompt") {
             var text = "Example text to appear on clipboard";
             var copyFrom = document.createElement("textarea");
+            console.log('Copying to clipboard.');
             copyFrom.textContent = text;
             document.body.appendChild(copyFrom);
             copyFrom.select();
