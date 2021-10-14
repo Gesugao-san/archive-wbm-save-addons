@@ -12,7 +12,7 @@ javascript: (function() {
             });
             */
         } else {
-            var msg = "Error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
+            var msg = "Fatal error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
             alert(msg);
             console.error(msg);
             return false;
