@@ -31,6 +31,8 @@ https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName;
 
 https://stackoverflow.com/a/3822931;
 
+https://www.w3schools.com/jsref/jsref_includes_array.asp;
+
 ---
 
 # To read or use soon
