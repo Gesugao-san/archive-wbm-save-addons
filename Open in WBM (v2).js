@@ -3,7 +3,7 @@ javascript: (function() {
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
 
-    if (!this.document.location.href.includes("WBMsites")) {
+    if (!WBMsites.includes(this.document.location.href)) {
         console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
         var targetWBM = location.href;
         var targetWBM_HTML = document.createElement("textarea");
