@@ -42,12 +42,12 @@ javascript: (function() {
         console.log("User is on WBM. Ticking boxes.");
         /* document.getElementById("web-save-url-input").value = targetUrl; */
         document.getElementById("web-save-url-input").focus();
-        document.execCommand("Paste", null, null);
-        document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
-        document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
-        document.getElementById("capture_screenshot").checked   = !document.getElementById("capture_screenshot").checked;
-        document.getElementById("wm-save-mywebarchive").checked = !document.getElementById("wm-save-mywebarchive").checked;
-        document.getElementById("email_result").checked         = !document.getElementById("email_result").checked;
+        document.execCommand("paste", null, null);
+        document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked; /* Save outlinks */
+        document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked; /* Save error pages */
+        document.getElementById("capture_screenshot").checked   = !document.getElementById("capture_screenshot").checked; /* Save screen shot */
+        document.getElementById("wm-save-mywebarchive").checked = !document.getElementById("wm-save-mywebarchive").checked; /* Save also in my web archive */
+        document.getElementById("email_result").checked         = !document.getElementById("email_result").checked; /* Please email me the results */
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
