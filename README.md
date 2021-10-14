@@ -25,6 +25,8 @@ https://stackoverflow.com/a/18455088;
 
 https://alligator.io/js/async-clipboard-api/;
 
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/slice;
+
 ---
 
 # To read or use soon
