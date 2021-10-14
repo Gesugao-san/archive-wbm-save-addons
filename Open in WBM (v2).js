@@ -38,7 +38,7 @@ javascript: (function() {
         document.getElementById("email_result").checked         = !targetBoolean; /* Please email me the results */
 
         var saveButton = document.getElementsByClassName("web-save-button").click(); /* "web-save-button web_button web_text" */
-        saveButton.click(function() {/*Do something*/});
+        saveButton.onclick(function() {/*Do something*/});
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
