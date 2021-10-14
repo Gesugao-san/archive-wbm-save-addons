@@ -1,8 +1,9 @@
 javascript: (function() {
     var debugOn = true;
+    const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
 
-    if (this.document.location.href != "https://web.archive.org/save/") {
+    if (!this.document.location.href.includes("WBMsites")) {
         console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
         var targetWBM = location.href;
         var targetWBM_HTML = document.createElement("textarea");
@@ -35,6 +36,8 @@ javascript: (function() {
         document.getElementById("capture_screenshot").checked   = !targetBoolean; /* Save screen shot */
         document.getElementById("wm-save-mywebarchive").checked = !targetBoolean; /* Save also in my web archive */
         document.getElementById("email_result").checked         = !targetBoolean; /* Please email me the results */
+
+        document.getElementsByClassName("email_result").click();
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
