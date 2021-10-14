@@ -33,6 +33,8 @@ https://stackoverflow.com/a/3822931;
 
 https://www.w3schools.com/jsref/jsref_includes_array.asp;
 
+https://stackoverflow.com/q/34780030;
+
 ---
 
 # To read or use soon
