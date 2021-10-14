@@ -1,5 +1,7 @@
 javascript: (function() {
     var debugOn = true;
+    var targetWBM = location.href;
+    
     if (debugOn) {console.log("Bookmarklet start executing.")};
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
@@ -32,7 +34,6 @@ javascript: (function() {
     
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
-        var targetWBM = location.href;
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
         /* window.document.close(); */
