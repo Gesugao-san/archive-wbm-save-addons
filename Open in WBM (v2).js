@@ -39,8 +39,7 @@ javascript: (function() {
 
         //var saveButton = document.getElementsByClassName("web-save-button").click(); /* "web-save-button web_button web_text" */
         //saveButton.onclick(function() {/*Do something*/});
-        setTimeout({}, 1000);
-        document.forms["web-save-form"].submit();
+        setTimeout(function() {document.forms["web-save-form"].submit();}, 500);
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
