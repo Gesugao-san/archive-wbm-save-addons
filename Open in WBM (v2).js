@@ -1,6 +1,6 @@
 javascript: (function() {
     var debugOn = true;
-    if (debugOn) {console.log("Bookmarklet start executing.")};
+    if (debugOn) {console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.")};
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
@@ -21,8 +21,7 @@ javascript: (function() {
     });
 
     if (this.document.location.href != "https://web.archive.org/save/") {
-        console.log("User is not on WBM. Copying to current URL to clipboard, opening WBM and stoping executing.");
-
+        console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
         var targetWBM = location.href;
         var targetWBM_HTML = document.createElement("textarea");
         targetWBM_HTML.textContent = targetWBM;
@@ -32,6 +31,7 @@ javascript: (function() {
         targetWBM_HTML.blur();
         document.body.removeChild(targetWBM_HTML);
 
+        console.log("Bookmarklet stops executing (due to changing pages).");
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
         /* window.document.close(); */
@@ -40,12 +40,16 @@ javascript: (function() {
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
         console.log("User is on WBM. Ticking boxes.");
-        document.getElementById("web-save-url-input").value = targetUrl;
+        /* document.getElementById("web-save-url-input").value = targetUrl; */
+        document.getElementById("web-save-url-input").focus();
+        document.execCommand("Paste", null, null);
         document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
         document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
         document.getElementById("capture_screenshot").checked   = !document.getElementById("capture_screenshot").checked;
         document.getElementById("wm-save-mywebarchive").checked = !document.getElementById("wm-save-mywebarchive").checked;
         document.getElementById("email_result").checked         = !document.getElementById("email_result").checked;
+    } else {
+        console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
     console.log("Bookmarklet stops executing.");
     return false;
