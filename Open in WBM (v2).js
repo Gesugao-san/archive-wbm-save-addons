@@ -12,8 +12,8 @@ javascript: (function() {
         } else {
             var msg = "Error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
             alert(msg);
-            console.error(msg)};
-        });
+            console.error(msg)
+        };
     });
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
