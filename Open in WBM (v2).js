@@ -66,11 +66,11 @@ javascript: (function() {
             console.warn("Clipboard content: ", text);
             /* const URLsFilter = ["http://", "https://", "www."]; */
             if ((text.slice(0, 4) == "www.") || (text.slice(0, 7) == "http://") || (text.slice(0, 8) == "https://")) {
-                console.log("Clipboard content is URl.");
+                console.log("Clipboard content is valid URl.");
+                document.getElementById('web-save-url-input').value = text;
             } else {
                 console.error("Clipboard content is not valid URl.");
             }
-            document.getElementById('web-save-url-input').value = text;
         })
         .catch(err => {
             /* maybe user didn't grant access to read from clipboard */
