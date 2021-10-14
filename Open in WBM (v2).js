@@ -61,7 +61,7 @@ javascript: (function() {
         .then(text => {
             /* `text` contains the text read from the clipboard */
             console.error("Clipboard content: ", text);
-            document.getElementById('web-save-url-input').value = 'text';
+            document.getElementById('web-save-url-input').value = text;
         })
         .catch(err => {
             /* maybe user didn't grant access to read from clipboard */
