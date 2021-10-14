@@ -1,7 +1,16 @@
 javascript: (function() {
     var debugOn = true;
     if (debugOn) {alert("Bookmarklet start executing.")};
+
     var text = "Example text to appear on clipboard";
+    var copyFrom = document.createElement("textarea");
+    copyFrom.textContent = text;
+    document.body.appendChild(copyFrom);
+    copyFrom.select();
+    document.execCommand('copy');
+    copyFrom.blur();
+    //document.body.removeChild(copyFrom);
+
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
             navigator.clipboard.writeText(text).then(function() {
@@ -18,13 +27,10 @@ javascript: (function() {
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
         var targetWBM = location.href;
-        var newWindow = window.open('');
-        /* newWindow.document.write('<html><head><title>New TAB</tit' + 'le>'); */
-        /* newWindow.document.write('</he' + 'ad>'); */
-        newWindow.document.write('<input type="hidden" id="myField" value="" /><body>');
-        newWindow.document.location='https://web.archive.org/save/';
-        newWindow.document.close();
-        newWindow.focus();
+        window.open('https://web.archive.org/save/');
+        /* window.document.location='https://web.archive.org/save/'; */
+        /* window.document.close(); */
+        /* window.focus(); */
         /* this.document.location.href = "https://web.archive.org/save/"; */
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
