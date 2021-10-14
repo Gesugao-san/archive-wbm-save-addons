@@ -4,7 +4,7 @@ javascript: (function() {
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
-            console.error("Permissions API's \"clipboard-write\" permission is needed, but denied.";);
+            console.error("OK: API's \"clipboard-write\" permission is granted.");
             /*
             navigator.clipboard.writeText(text).then(function() {
                 console.log('Async: Copying to clipboard was successful!');
@@ -13,7 +13,7 @@ javascript: (function() {
             });
             */
         } else {
-            var msg = "Fatal error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
+            var msg = "Fatal error: API's \"clipboard-write\" permission is needed, but denied.";
             alert(msg);
             console.error(msg);
             return false;
