@@ -9,7 +9,7 @@ javascript: (function() {
     copyFrom.select();
     document.execCommand('copy');
     copyFrom.blur();
-    //document.body.removeChild(copyFrom);
+    document.body.removeChild(copyFrom);
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
