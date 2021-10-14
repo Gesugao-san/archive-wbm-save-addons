@@ -1,7 +1,5 @@
 javascript: (function() {
     var debugOn = true;
-    var targetWBM = location.href;
-    
     if (debugOn) {console.log("Bookmarklet start executing.")};
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
@@ -22,18 +20,18 @@ javascript: (function() {
         };
     });
 
-    var text = "Example text to appear on clipboard";
-    var copyFrom = document.createElement("textarea");
-    console.log('Copying to clipboard.');
-    copyFrom.textContent = text;
-    document.body.appendChild(copyFrom);
-    copyFrom.select();
-    document.execCommand('copy');
-    copyFrom.blur();
-    document.body.removeChild(copyFrom);
-    
     if (this.document.location.href != "https://web.archive.org/save/") {
-        if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
+        console.log("User is not on WBM. Copying to current URL to clipboard, opening WBM and stoping executing.");
+
+        var targetWBM = location.href;
+        var targetWBM_HTML = document.createElement("targetWBM_element");
+        targetWBM_HTML.textContent = targetWBM;
+        document.body.appendChild(targetWBM_HTML);
+        targetWBM_HTML.select();
+        document.execCommand('copy');
+        targetWBM_HTML.blur();
+        document.body.removeChild(targetWBM_HTML);
+
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
         /* window.document.close(); */
@@ -41,7 +39,7 @@ javascript: (function() {
         /* this.document.location.href = "https://web.archive.org/save/"; */
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
-        if (debugOn) {console.log("User is on WBM. Ticking boxes.")};
+        console.log("User is on WBM. Ticking boxes.");
         document.getElementById("web-save-url-input").value = targetUrl;
         document.getElementById("capture_outlinks").checked     = !document.getElementById("capture_outlinks").checked;
         document.getElementById("capture_all").checked          = !document.getElementById("capture_all").checked;
