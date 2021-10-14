@@ -2,24 +2,6 @@ javascript: (function() {
     var debugOn = true;
     if (debugOn) {console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.")};
 
-    navigator.permissions.query({name: "clipboard-write"}).then(result => {
-        if (result.state == "granted" || result.state == "prompt") {
-            if (debugOn) console.info("OK: API's \"clipboard-write\" permission is granted.");
-            /*
-            navigator.clipboard.writeText(text).then(function() {
-                console.log('Async: Copying to clipboard was successful!');
-            }, function(err) {
-                console.error(err);
-            });
-            */
-        } else {
-            var msg = "Fatal error: API's \"clipboard-write\" permission is needed, but denied.";
-            alert(msg);
-            console.error(msg);
-            return false;
-        };
-    });
-
     if (this.document.location.href != "https://web.archive.org/save/") {
         console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
         var targetWBM = location.href;
@@ -56,19 +38,38 @@ javascript: (function() {
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
-    console.log("Bookmarklet stops executing.");
+
     if (navigator.clipboard) {
-        // yep, turn the feature on.
+        navigator.permissions.query({name: "clipboard-write"}).then(result => {
+            if (result.state == "granted" || result.state == "prompt") {
+                if (debugOn) console.info("OK: API's \"clipboard-write\" permission is granted.");
+                /*
+                navigator.clipboard.writeText(text).then(function() {
+                    console.log('Async: Copying to clipboard was successful!');
+                }, function(err) {
+                    console.error(err);
+                });
+                */
+            } else {
+                var msg = "Fatal error: API's \"clipboard-write\" permission is needed, but denied.";
+                alert(msg);
+                console.error(msg);
+                return false;
+            };
+        });
         navigator.clipboard.readText()
         .then(text => {
-            // `text` contains the text read from the clipboard
+            /* `text` contains the text read from the clipboard */
+            console.error("text", text);
         })
         .catch(err => {
-            // maybe user didn't grant access to read from clipboard
+            /* maybe user didn't grant access to read from clipboard */
             console.log('Something went wrong', err);
         });
     } else {
-        // nope 😢. Use execCommand or leave the feature off
-    }
+        /* nope 😢. Use execCommand or leave the feature off */
+    };
+
+    console.log("Bookmarklet stops executing.");
     return false;
 })();
