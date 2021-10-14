@@ -27,6 +27,8 @@ https://alligator.io/js/async-clipboard-api/;
 
 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/slice;
 
+https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName;
+
 ---
 
 # To read or use soon
