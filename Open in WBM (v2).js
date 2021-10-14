@@ -2,28 +2,30 @@ javascript: (function() {
     var debugOn = true;
     if (debugOn) {alert("Bookmarklet start executing.")};
 
-    var text = "Example text to appear on clipboard";
-    var copyFrom = document.createElement("textarea");
-    copyFrom.textContent = text;
-    document.body.appendChild(copyFrom);
-    copyFrom.select();
-    document.execCommand('copy');
-    copyFrom.blur();
-    document.body.removeChild(copyFrom);
-
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
+            var text = "Example text to appear on clipboard";
+            var copyFrom = document.createElement("textarea");
+            copyFrom.textContent = text;
+            document.body.appendChild(copyFrom);
+            copyFrom.select();
+            document.execCommand('copy');
+            /*
             navigator.clipboard.writeText(text).then(function() {
                 console.log('Async: Copying to clipboard was successful!');
             }, function(err) {
                 console.error(err);
             });
+            */
         } else {
             var msg = "Error: Permissions API's \"clipboard-write\" permission is needed, but denied.";
             alert(msg);
             console.error(msg)
         };
     });
+    copyFrom.blur();
+    document.body.removeChild(copyFrom);
+    
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
         var targetWBM = location.href;
