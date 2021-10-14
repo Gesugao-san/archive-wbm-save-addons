@@ -4,6 +4,7 @@ javascript: (function() {
 
     navigator.permissions.query({name: "clipboard-write"}).then(result => {
         if (result.state == "granted" || result.state == "prompt") {
+            console.error("Permissions API's \"clipboard-write\" permission is needed, but denied.";);
             /*
             navigator.clipboard.writeText(text).then(function() {
                 console.log('Async: Copying to clipboard was successful!');
