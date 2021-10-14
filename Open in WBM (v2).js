@@ -10,6 +10,8 @@ javascript: (function() {
             document.body.appendChild(copyFrom);
             copyFrom.select();
             document.execCommand('copy');
+            copyFrom.blur();
+            document.body.removeChild(copyFrom);
             /*
             navigator.clipboard.writeText(text).then(function() {
                 console.log('Async: Copying to clipboard was successful!');
@@ -23,8 +25,6 @@ javascript: (function() {
             console.error(msg)
         };
     });
-    copyFrom.blur();
-    document.body.removeChild(copyFrom);
     
     if (this.document.location.href != "https://web.archive.org/save/") {
         if (debugOn) {var msg = "User is not on WBM. Opening WBM and stoping executing."; alert(msg); console.log(msg)};
