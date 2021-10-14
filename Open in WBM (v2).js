@@ -61,6 +61,9 @@ javascript: (function() {
         .then(text => {
             /* `text` contains the text read from the clipboard */
             console.error("Clipboard content: ", text);
+            if (str.slice(0, 4)) {
+                
+            }
             document.getElementById('web-save-url-input').value = text;
         })
         .catch(err => {
