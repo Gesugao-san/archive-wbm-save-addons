@@ -5,10 +5,10 @@ javascript: (function() {
         if (debugOn) {alert("User is not on WBM. Opening WBM and stoping executing.")};
         var targetWBM = location.href;
         var newWindow = window.open('');
-        newWindow.document.write('<html><head><title>New TAB</tit' + 'le>');
-        newWindow.document.write('</he' + 'ad>')
-        newWindow.document.write('<input type="hidden" id="myField" value="" /><body>')
         newWindow.document.location='https://web.archive.org/save/';
+        // newWindow.document.write('<html><head><title>New TAB</tit' + 'le>');
+        // newWindow.document.write('</he' + 'ad>')
+        newWindow.document.write('<input type="hidden" id="myField" value="" /><body>')
         newWindow.document.close();
         newWindow.focus();
         // this.document.location.href = "https://web.archive.org/save/";
