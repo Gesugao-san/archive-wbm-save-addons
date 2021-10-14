@@ -37,7 +37,8 @@ javascript: (function() {
         document.getElementById("wm-save-mywebarchive").checked = !targetBoolean; /* Save also in my web archive */
         document.getElementById("email_result").checked         = !targetBoolean; /* Please email me the results */
 
-        document.getElementsByClassName("email_result").click();
+        var saveButton = document.getElementsByClassName("web-save-button").click(); /* "web-save-button web_button web_text" */
+        saveButton.click(function() {/*Do something*/});
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
