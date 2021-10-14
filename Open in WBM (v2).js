@@ -24,7 +24,7 @@ javascript: (function() {
         console.log("User is not on WBM. Copying to current URL to clipboard, opening WBM and stoping executing.");
 
         var targetWBM = location.href;
-        var targetWBM_HTML = document.createElement("targetWBM_element");
+        var targetWBM_HTML = document.createElement("textarea");
         targetWBM_HTML.textContent = targetWBM;
         document.body.appendChild(targetWBM_HTML);
         targetWBM_HTML.select();
