@@ -48,7 +48,7 @@ javascript: (function() {
             .then(text => {
                 /* `text` contains the text read from the clipboard */
                 if (debugOn) console.warn("Clipboard content: ", text);
-                if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1])) {
+                if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[2].length) == URLsFilter[2])) {
                     console.log("Clipboard content is valid URl.");
                     document.getElementById('web-save-url-input').value = text;
                 } else {
