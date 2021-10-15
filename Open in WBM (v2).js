@@ -60,8 +60,8 @@ javascript: (function() {
         .then(text => {
             /* `text` contains the text read from the clipboard */
             if (debugOn) console.warn("Clipboard content: ", text);
-            /* const URLsFilter = ["http://", "https://", "www."]; */
-            if ((text.slice(0, 4) == "www.") || (text.slice(0, 7) == "http://") || (text.slice(0, 8) == "https://")) {
+            const URLsFilter = ["www.", "http://", "https://"];
+            if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1])) {
                 console.log("Clipboard content is valid URl.");
                 document.getElementById('web-save-url-input').value = text;
             } else {
