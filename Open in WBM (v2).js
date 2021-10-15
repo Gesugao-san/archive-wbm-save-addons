@@ -1,10 +1,10 @@
 javascript: (function() {
     var debugOn = false;
-    if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
+    if (debugOn) console.log("[\"WayBack Mashine\" (WBM) bookmarklet]\nStatus: script starts executing.");
     const URLsFilter = ["www.", "http://", "https://"];
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (!WBMsites.includes(this.document.location.href)) {
-        console.log("User is not on WBM.\nActions: 1. Copying to current URL to clipboard.\n2.Opening WBM. Click on me second time!");
+        console.log("[WBM bookmarklet]\nUser is not on WBM. Target acquired. Actions:\n1. Copying to current URL to clipboard.\n2.Opening WBM. Click on me second time!");
         var targetWBM_HTML = document.createElement("textarea");
         targetWBM_HTML.textContent = location.href;
         document.body.appendChild(targetWBM_HTML);
@@ -12,7 +12,7 @@ javascript: (function() {
         document.execCommand('copy');
         targetWBM_HTML.blur();
         document.body.removeChild(targetWBM_HTML);
-        if (debugOn) console.log("Bookmarklet stops executing (due to changing pages).");
+        if (debugOn) console.log("[WBM bookmarklet]\nStatus: script stops executing.\nReason: changing pages.");
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
         /* window.document.close(); */
@@ -20,7 +20,7 @@ javascript: (function() {
         /* this.document.location.href = "https://web.archive.org/save/"; */
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
-        console.log("User is on WBM. Ticking boxes.");
+        console.log("[WBM bookmarklet]\nUser is on WBM. Ticking boxes.");
         var urlInput = document.getElementById("web-save-url-input")
         urlInput.focus();
         urlInput.select();
@@ -47,22 +47,22 @@ javascript: (function() {
             navigator.clipboard.readText()
             .then(text => {
                 /* `text` contains the text read from the clipboard */
-                if (debugOn) console.warn("Clipboard content: ", text);
+                /* if (debugOn) console.warn("[WBM bookmarklet]\nClipboard content: ", text); */
                 if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[2].length) == URLsFilter[2])) {
-                    console.log("Clipboard content is valid URl.");
+                    console.log("[WBM bookmarklet]\nClipboard content is valid URl.");
                     document.getElementById('web-save-url-input').value = text;
                 } else {
-                    console.error("Clipboard content is not valid URl.");
+                    console.error("[WBM bookmarklet]\nClipboard content is not valid URl.");
                 }
             })
             .catch(err => {
                 /* maybe user didn't grant access to read from clipboard */
-                console.log('Something went wrong', err);
+                console.log('[WBM bookmarklet]\nSomething went wrong.\n', err);
                 return false;
             });
         } else {
             /* nope 😢. Use execCommand or leave the feature off */
-            console.error("Fatal error: navigator.clipboard is not avaliable, exiting.");
+            console.error("[WBM bookmarklet]\nFatal error: navigator.clipboard is not avaliable, exiting.");
             return false;
         };
         var targetBoolean = document.getElementById("capture_outlinks").checked
@@ -75,8 +75,8 @@ javascript: (function() {
         //saveButton.onclick(function() {/*Do something*/});
         setTimeout(function() {document.forms["web-save-form"].submit();}, 500);
     } else {
-        console.warn("User is on WBM, but is seems that page is not loaded yet.");
+        console.warn("[WBM bookmarklet]\nUser is on WBM, but is seems that page is not loaded yet. Wait and try again later. Exiting.");
     }
-    if (debugOn) console.log("Bookmarklet stops executing.");
+    if (debugOn) console.log("[WBM bookmarklet]\nStatus: script stops executing.\nReason: EOF.");
     return false;
 })();
