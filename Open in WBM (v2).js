@@ -39,7 +39,8 @@ javascript: (function() {
     }
     if (navigator.clipboard) {
         navigator.permissions.query({name: "clipboard-write"}).then(result => {
-            if (result.state == "granted" || result.state == "prompt") {
+            /* if (result.state == "granted" || result.state == "prompt") { */
+            if (["granted", "prompt"].includes(result.state))  {
                 if (debugOn) console.info("OK: API's \"clipboard-write\" permission is granted.");
                 /*
                 navigator.clipboard.writeText(text).then(function() {
