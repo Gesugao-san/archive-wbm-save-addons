@@ -13,7 +13,7 @@ javascript: (function() {
         document.execCommand('copy');
         targetWBM_HTML.blur();
         document.body.removeChild(targetWBM_HTML);
-        console.log("Bookmarklet stops executing (due to changing pages).");
+        if (debugOn) console.log("Bookmarklet stops executing (due to changing pages).");
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
         /* window.document.close(); */
@@ -60,7 +60,7 @@ javascript: (function() {
         navigator.clipboard.readText()
         .then(text => {
             /* `text` contains the text read from the clipboard */
-            console.warn("Clipboard content: ", text);
+            if (debugOn) console.warn("Clipboard content: ", text);
             /* const URLsFilter = ["http://", "https://", "www."]; */
             if ((text.slice(0, 4) == "www.") || (text.slice(0, 7) == "http://") || (text.slice(0, 8) == "https://")) {
                 console.log("Clipboard content is valid URl.");
