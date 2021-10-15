@@ -4,7 +4,7 @@ javascript: (function() {
     const URLsFilter = ["www.", "http://", "https://"];
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (!WBMsites.includes(this.document.location.href)) {
-        console.log("[WBM bookmarklet]\nUser is not on WBM. Target acquired. Actions:\n1. Copying to current URL to clipboard.\n2.Opening WBM. Click on me second time!");
+        console.log("[WBM bookmarklet]\nUser is not on WBM. Target acquired.\nActions:\n1. Copying to current URL to clipboard.\n2. Opening WBM.\nTo second step, click on me on WBM page!");
         var targetWBM_HTML = document.createElement("textarea");
         targetWBM_HTML.textContent = location.href;
         document.body.appendChild(targetWBM_HTML);
@@ -57,7 +57,7 @@ javascript: (function() {
             })
             .catch(err => {
                 /* maybe user didn't grant access to read from clipboard */
-                console.log('[WBM bookmarklet]\nSomething went wrong.\n', err);
+                console.error('[WBM bookmarklet]\nSomething went wrong.\n', err);
                 return false;
             });
         } else {
@@ -73,7 +73,8 @@ javascript: (function() {
         document.getElementById("email_result").checked         = !targetBoolean; /* Please email me the results */
         //var saveButton = document.getElementsByClassName("web-save-button").click(); /* "web-save-button web_button web_text" */
         //saveButton.onclick(function() {/*Do something*/});
-        setTimeout(function() {document.forms["web-save-form"].submit();}, 500);
+        setTimeout(function() {document.forms["web-save-form"].submit();}, 1500);
+        console.info("[WBM bookmarklet]\Form was submitted!");
     } else {
         console.warn("[WBM bookmarklet]\nUser is on WBM, but is seems that page is not loaded yet. Wait and try again later. Exiting.");
     }
