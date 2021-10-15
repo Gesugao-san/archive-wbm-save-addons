@@ -75,7 +75,6 @@ javascript: (function() {
         /* nope 😢. Use execCommand or leave the feature off */
         console.error("Fatal error: navigator.clipboard is not avaliable, exiting.")
     };
-
     if (debugOn) console.log("Bookmarklet stops executing.");
     return false;
 })();
