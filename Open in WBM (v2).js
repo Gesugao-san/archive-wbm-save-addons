@@ -4,10 +4,9 @@ javascript: (function() {
     const URLsFilter = ["www.", "http://", "https://"];
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (!WBMsites.includes(this.document.location.href)) {
-        console.log("User is not on WBM.\nAction: Copying to current URL to clipboard and opening WBM.");
-        var targetWBM = location.href;
+        console.log("User is not on WBM.\nActions: 1. Copying to current URL to clipboard.\n2.Opening WBM. Click on me second time!");
         var targetWBM_HTML = document.createElement("textarea");
-        targetWBM_HTML.textContent = targetWBM;
+        targetWBM_HTML.textContent = location.href;
         document.body.appendChild(targetWBM_HTML);
         targetWBM_HTML.select();
         document.execCommand('copy');
