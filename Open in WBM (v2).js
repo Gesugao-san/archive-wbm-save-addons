@@ -1,8 +1,7 @@
 javascript: (function() {
     var debugOn = false;
-    const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
-
+    const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (!WBMsites.includes(this.document.location.href)) {
         console.log("User is not on WBM. Copying to current URL to clipboard and opening WBM.");
         var targetWBM = location.href;
@@ -38,7 +37,6 @@ javascript: (function() {
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
-
     if (navigator.clipboard) {
         navigator.permissions.query({name: "clipboard-write"}).then(result => {
             if (result.state == "granted" || result.state == "prompt") {
