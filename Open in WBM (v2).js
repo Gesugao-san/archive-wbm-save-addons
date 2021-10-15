@@ -1,6 +1,7 @@
 javascript: (function() {
     var debugOn = false;
     if (debugOn) console.log("Bookmarklet for \"WayBack Mashine\" (WBM is short) start executing.");
+    const URLsFilter = ["www.", "http://", "https://"];
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
     if (!WBMsites.includes(this.document.location.href)) {
         console.log("User is not on WBM.\nAction: Copying to current URL to clipboard and opening WBM.");
@@ -60,7 +61,6 @@ javascript: (function() {
         .then(text => {
             /* `text` contains the text read from the clipboard */
             if (debugOn) console.warn("Clipboard content: ", text);
-            const URLsFilter = ["www.", "http://", "https://"];
             if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1])) {
                 console.log("Clipboard content is valid URl.");
                 document.getElementById('web-save-url-input').value = text;
