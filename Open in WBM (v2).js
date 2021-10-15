@@ -13,7 +13,6 @@ javascript: (function() {
         document.execCommand('copy');
         targetWBM_HTML.blur();
         document.body.removeChild(targetWBM_HTML);
-
         console.log("Bookmarklet stops executing (due to changing pages).");
         window.open('https://web.archive.org/save/');
         /* window.document.location='https://web.archive.org/save/'; */
@@ -23,20 +22,16 @@ javascript: (function() {
         return false;
     } else if (document.readyState === "complete") { /* Wait for the page to finish loading */
         console.log("User is on WBM. Ticking boxes.");
-        /* document.getElementById("web-save-url-input").value = targetUrl; */
         var urlInput = document.getElementById("web-save-url-input")
         urlInput.focus();
         urlInput.select();
-        if (document.execCommand('paste')) {
-            document.getElementById("web-save-url-input").val();
-        }
+        if (document.execCommand('paste')) urlInput.val();
         var targetBoolean = document.getElementById("capture_outlinks").checked
         document.getElementById("capture_outlinks").checked     = !targetBoolean; /* Save outlinks */
         document.getElementById("capture_all").checked          = !targetBoolean; /* Save error pages */
         document.getElementById("capture_screenshot").checked   = !targetBoolean; /* Save screen shot */
         document.getElementById("wm-save-mywebarchive").checked = !targetBoolean; /* Save also in my web archive */
         document.getElementById("email_result").checked         = !targetBoolean; /* Please email me the results */
-
         //var saveButton = document.getElementsByClassName("web-save-button").click(); /* "web-save-button web_button web_text" */
         //saveButton.onclick(function() {/*Do something*/});
         setTimeout(function() {document.forms["web-save-form"].submit();}, 500);
