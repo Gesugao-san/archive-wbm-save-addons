@@ -25,6 +25,46 @@ javascript: (function() {
         urlInput.focus();
         urlInput.select();
         if (document.execCommand('paste')) urlInput.val();
+        if (navigator.clipboard) {
+            navigator.permissions.query({name: "clipboard-write"}).then(result => {
+                /* if (result.state == "granted" || result.state == "prompt") { */
+                if (["granted", "prompt"].includes(result.state))  {
+                    if (debugOn) console.info("OK: API's \"clipboard-write\" permission is granted.");
+                    /*
+                    navigator.clipboard.writeText(text).then(function() {
+                        console.log('Async: Copying to clipboard was successful!');
+                    }, function(err) {
+                        console.error(err);
+                    });
+                    */
+                } else {
+                    var msg = "Fatal error: API's \"clipboard-write\" permission is needed, but denied.";
+                    alert(msg);
+                    console.error(msg);
+                    return false;
+                };
+            });
+            navigator.clipboard.readText()
+            .then(text => {
+                /* `text` contains the text read from the clipboard */
+                if (debugOn) console.warn("Clipboard content: ", text);
+                if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1])) {
+                    console.log("Clipboard content is valid URl.");
+                    document.getElementById('web-save-url-input').value = text;
+                } else {
+                    console.error("Clipboard content is not valid URl.");
+                }
+            })
+            .catch(err => {
+                /* maybe user didn't grant access to read from clipboard */
+                console.log('Something went wrong', err);
+                return false;
+            });
+        } else {
+            /* nope 😢. Use execCommand or leave the feature off */
+            console.error("Fatal error: navigator.clipboard is not avaliable, exiting.");
+            return false;
+        };
         var targetBoolean = document.getElementById("capture_outlinks").checked
         document.getElementById("capture_outlinks").checked     = !targetBoolean; /* Save outlinks */
         document.getElementById("capture_all").checked          = !targetBoolean; /* Save error pages */
@@ -37,44 +77,6 @@ javascript: (function() {
     } else {
         console.warn("User is on WBM, but is seems that page is not loaded yet.");
     }
-    if (navigator.clipboard) {
-        navigator.permissions.query({name: "clipboard-write"}).then(result => {
-            /* if (result.state == "granted" || result.state == "prompt") { */
-            if (["granted", "prompt"].includes(result.state))  {
-                if (debugOn) console.info("OK: API's \"clipboard-write\" permission is granted.");
-                /*
-                navigator.clipboard.writeText(text).then(function() {
-                    console.log('Async: Copying to clipboard was successful!');
-                }, function(err) {
-                    console.error(err);
-                });
-                */
-            } else {
-                var msg = "Fatal error: API's \"clipboard-write\" permission is needed, but denied.";
-                alert(msg);
-                console.error(msg);
-                return false;
-            };
-        });
-        navigator.clipboard.readText()
-        .then(text => {
-            /* `text` contains the text read from the clipboard */
-            if (debugOn) console.warn("Clipboard content: ", text);
-            if ((text.slice(0, URLsFilter[0].length) == URLsFilter[0]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1]) || (text.slice(0, URLsFilter[1].length) == URLsFilter[1])) {
-                console.log("Clipboard content is valid URl.");
-                document.getElementById('web-save-url-input').value = text;
-            } else {
-                console.error("Clipboard content is not valid URl.");
-            }
-        })
-        .catch(err => {
-            /* maybe user didn't grant access to read from clipboard */
-            console.log('Something went wrong', err);
-        });
-    } else {
-        /* nope 😢. Use execCommand or leave the feature off */
-        console.error("Fatal error: navigator.clipboard is not avaliable, exiting.")
-    };
     if (debugOn) console.log("Bookmarklet stops executing.");
     return false;
 })();
