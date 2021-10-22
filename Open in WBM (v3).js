@@ -1,5 +1,5 @@
 javascript: (function() {
-    var debugOn = false;
+    var debugOn = true;
     let checkBoxesIDS = ["capture_outlinks", "capture_all", "capture_screenshot", "wm-save-mywebarchive", "email_result"];
     if (debugOn) console.log("[\"WayBack Mashine\" (WBM) bookmarklet][log]\nStatus: script starts executing.");
     const URLsFilter = ["www.", "http://", "https://"];
