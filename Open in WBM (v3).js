@@ -15,7 +15,7 @@ javascript: (function() {
         formHidden.setAttribute('name', "wwmform_save");
         formHidden.setAttribute('action', "https://web.archive.org/save/");
         formHidden.setAttribute('method', "POST");
-        element.setAttribute("hidden", true);
+        formHidden.setAttribute("hidden", true);
         var element = document.createElement(checkBoxID); //input element, text
         element.setAttribute('type', "text");
         element.setAttribute('name', checkBoxID);
