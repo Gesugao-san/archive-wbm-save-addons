@@ -31,6 +31,13 @@ Maybe:
 
 ---
 
+### Uses
+
+* https://gist.github.com/Gesugao-san/4d70316e9a25b126429035ba90670685#file-open-in-wbm-v2-js;
+* https://stackoverflow.com/a/6964949;
+
+---
+
 # Tools and inspiration
 
 https://caiorss.github.io/bookmarklet-maker/
