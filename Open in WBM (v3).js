@@ -37,7 +37,7 @@ javascript: (function() {
         submitButton.setAttribute('value', "Submit");
         formHidden.appendChild(submitButton);
         document.getElementsByTagName('body')[0].appendChild(formHidden);
-        //setTimeout(function() {formHidden.submit();}, 100);
+        //setTimeout(function() {formHidden.submit();}, 100); /// BUG: RESET THE AUTH ON WBM!!!
         var win = window.open(); // https://stackoverflow.com/a/20235958
         win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
         win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
