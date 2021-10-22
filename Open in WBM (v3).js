@@ -21,12 +21,14 @@ javascript: (function() {
         urlInput.setAttribute('class', "form-control web-save-url-input web_input web_text");
         urlInput.setAttribute('id', "web-save-url-input");
         urlInput.setAttribute('name', "url");
+        urlInput.value = this.document.location.href;
         formHidden.appendChild(urlInput);
         for (let checkBoxID of checkBoxesIDS) {
             var element = document.createElement("input"); //input element, text
             element.setAttribute('type', "checkbox");
             element.setAttribute('name', checkBoxID);
             element.setAttribute('id', checkBoxID);
+            element.checked=true;
             formHidden.appendChild(element);
         }
         var submitButton = document.createElement("input"); //input element, Submit button
