@@ -1,6 +1,6 @@
 javascript: (function() {
     var debugOn = false;
-    let checkBoxes = ["capture_outlinks", "capture_all", "capture_screenshot", "wm-save-mywebarchive", "email_result"];
+    let checkBoxesIDS = ["capture_outlinks", "capture_all", "capture_screenshot", "wm-save-mywebarchive", "email_result"];
     if (debugOn) console.log("[\"WayBack Mashine\" (WBM) bookmarklet][log]\nStatus: script starts executing.");
     const URLsFilter = ["www.", "http://", "https://"];
     const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
@@ -9,18 +9,23 @@ javascript: (function() {
         alert("[WBM bookmarklet]: Go on target website and just click on bookmarklet one time.");
     } else {
         console.log("[WBM bookmarklet][log]\nUser is not on WBM. Target acquired.\nActions:\n1. Sending POST-req form and opening WBM.");
-        var f = document.createElement("form"); // https://stackoverflow.com/a/6964949
-        f.setAttribute('method',"post");
-        f.setAttribute('action',"submit.php");
-        f.setAttribute('action',"submit.php");
-        
-        var i = document.createElement("input"); //input element, text
-        i.setAttribute('type',"text");
-        i.setAttribute('name',"username");
-        
-        // from: https://web.archive.org/_static/js/bundle-spn.js
+        var formHidden = document.createElement("form"); // https://stackoverflow.com/a/6964949
+        formHidden.setAttribute('class', "web-save-form");
+        formHidden.setAttribute('id', "web-save-form");
+        formHidden.setAttribute('name', "wwmform_save");
+        formHidden.setAttribute('action', "https://web.archive.org/save/");
+        formHidden.setAttribute('method', "POST");
+        element.setAttribute("hidden", true);
+        var element = document.createElement(checkBoxID); //input element, text
+        element.setAttribute('type', "text");
+        element.setAttribute('name', checkBoxID);
+        for (let checkBoxID of checkBoxesIDS) {
+            var element = document.createElement(checkBoxID); //input element, text
+            element.setAttribute('type', "text");
+            element.setAttribute('name', checkBoxID);
+        }
+        // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
     if (debugOn) console.log("[WBM bookmarklet][log]\nStatus: script stops executing.\nReason: EOF.");
     return false;
 })();
-element.setAttribute("hidden", true);
