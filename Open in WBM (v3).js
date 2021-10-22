@@ -13,8 +13,8 @@ javascript: (function() {
             i.style.display = 'none';
             //i.onload = function() { i.parentNode.removeChild(i); };
             i.src = 'https://web.archive.org/save'; // no auth
-            i.setAttribute("height","230");
-            i.setAttribute("width","360");
+            i.setAttribute("height", "230");
+            i.setAttribute("width", "360");
             document.body.appendChild(i);
             console.log("[WBM bookmarklet][log]\nOpened! Are we alive?");
             //return false;
