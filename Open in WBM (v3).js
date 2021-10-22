@@ -11,7 +11,11 @@ javascript: (function() {
             console.log("[WBM bookmarklet][log]\nUser is not on WBM. Target acquired.\nActions:\n1. Copying to current URL to clipboard.\n2. Opening WBM.\nTo second step, click on me on WBM page!");
             var openedWBM = window.open('https://web.archive.org/save/');
             //openedWBM.addEventListener('load', openedWBM.save, true); // https://stackoverflow.com/a/1372096
-            openedWBM.addEventListener('load', function() {openedWBM.close();}, true);
+            //openedWBM.addEventListener('load', function() {openedWBM.close();}, true);
+            alert("It's loaded111111!");
+            openedWBM.addEventListener('load', function () {
+                alert("It's loaded!")
+            })
             /* window.document.location='https://web.archive.org/save/'; */
             /* window.document.close(); */
             /* window.focus(); */
