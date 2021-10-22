@@ -38,9 +38,9 @@ javascript: (function() {
         formHidden.appendChild(submitButton);
         document.getElementsByTagName('body')[0].appendChild(formHidden);
         //setTimeout(function() {formHidden.submit();}, 100); /// BUG: RESET THE AUTH ON WBM!!!
-        var win = window.open(); // https://stackoverflow.com/a/20235958
-        win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
-        win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
+        var win = window.open("https://web.archive.org/save/"); // https://stackoverflow.com/a/20235958
+        //win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
+        //win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
         // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
     if (debugOn) console.log("[WBM bookmarklet][log]\nStatus: script stops executing.\nReason: EOF.");
