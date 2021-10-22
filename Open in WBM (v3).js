@@ -15,7 +15,7 @@ javascript: (function() {
         formHidden.setAttribute('name', "wwmform_save");
         formHidden.setAttribute('action', "https://web.archive.org/save/");
         formHidden.setAttribute('method', "POST");
-        formHidden.setAttribute("hidden", true);
+        //formHidden.setAttribute("hidden", true);
         var urlInput = document.createElement("input"); //input element, text
         urlInput.setAttribute('type', "text");
         urlInput.setAttribute('class', "form-control web-save-url-input web_input web_text");
@@ -28,7 +28,7 @@ javascript: (function() {
             element.setAttribute('type', "checkbox");
             element.setAttribute('name', checkBoxID);
             element.setAttribute('id', checkBoxID);
-            element.checked=true; // https://stackoverflow.com/a/20140802
+            element.checked = true; // https://stackoverflow.com/a/20140802
             formHidden.appendChild(element);
         }
         var submitButton = document.createElement("input"); //input element, Submit button
@@ -37,7 +37,9 @@ javascript: (function() {
         submitButton.setAttribute('value', "Submit");
         formHidden.appendChild(submitButton);
         document.getElementsByTagName('body')[0].appendChild(formHidden);
-        setTimeout(function() {formHidden.submit();}, 100);
+        //setTimeout(function() {formHidden.submit();}, 100);
+        var win = window.open();
+        win.document.write('<iframe width="560" height="315" src="//www.youtube.com/embed/mTWfqi3-3qU" frameborder="0" allowfullscreen></iframe>')
         // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
     if (debugOn) console.log("[WBM bookmarklet][log]\nStatus: script stops executing.\nReason: EOF.");
