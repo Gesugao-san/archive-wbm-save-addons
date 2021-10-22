@@ -18,6 +18,7 @@ javascript: (function() {
             document.body.appendChild(i);
             console.log("[WBM bookmarklet][log]\nOpened! Are we alive?");
             //return false;
+            // HELP https://stackoverflow.com/a/54697782
         };
     };
     save();
