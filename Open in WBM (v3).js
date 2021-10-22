@@ -37,7 +37,7 @@ javascript: (function() {
         submitButton.setAttribute('value', "Submit");
         formHidden.appendChild(submitButton);
         document.getElementsByTagName('body')[0].appendChild(formHidden);
-        setTimeout(function() {formHidden.submit();}, 500);
+        setTimeout(function() {formHidden.submit();}, 100);
         // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
     if (debugOn) console.log("[WBM bookmarklet][log]\nStatus: script stops executing.\nReason: EOF.");
