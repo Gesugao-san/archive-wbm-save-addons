@@ -12,7 +12,9 @@ javascript: (function() {
             var i = document.createElement('iframe'); // https://stackoverflow.com/a/635750
             i.style.display = 'none';
             //i.onload = function() { i.parentNode.removeChild(i); };
-            i.src = 'https://web.archive.org/save';
+            i.src = 'https://web.archive.org/save'; // no auth
+            i.setAttribute("height","230");
+            i.setAttribute("width","360");
             document.body.appendChild(i);
             console.log("[WBM bookmarklet][log]\nOpened! Are we alive?");
             //return false;
