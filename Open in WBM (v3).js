@@ -28,7 +28,7 @@ javascript: (function() {
             element.setAttribute('type', "checkbox");
             element.setAttribute('name', checkBoxID);
             element.setAttribute('id', checkBoxID);
-            element.checked=true;
+            element.checked=true; // https://stackoverflow.com/a/20140802
             formHidden.appendChild(element);
         }
         var submitButton = document.createElement("input"); //input element, Submit button
@@ -37,7 +37,7 @@ javascript: (function() {
         submitButton.setAttribute('value', "Submit");
         formHidden.appendChild(submitButton);
         document.getElementsByTagName('body')[0].appendChild(formHidden);
-        
+        setTimeout(function() {formHidden.submit();}, 500);
         // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
     if (debugOn) console.log("[WBM bookmarklet][log]\nStatus: script stops executing.\nReason: EOF.");
