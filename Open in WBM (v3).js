@@ -23,9 +23,10 @@ javascript: (function() {
         urlInput.setAttribute('name', "url");
         formHidden.appendChild(urlInput);
         for (let checkBoxID of checkBoxesIDS) {
-            var element = document.createElement(checkBoxID); //input element, text
-            element.setAttribute('type', "text");
+            var element = document.createElement("input"); //input element, text
+            element.setAttribute('type', "checkbox");
             element.setAttribute('name', checkBoxID);
+            element.setAttribute('id', checkBoxID);
             formHidden.appendChild(element);
         }
         var submitButton = document.createElement("input"); //input element, Submit button
