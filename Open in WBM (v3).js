@@ -9,17 +9,11 @@ javascript: (function() {
         const WBMsites = ["https://web.archive.org/save/", "https://web.archive.org/save"];
         if (!WBMsites.includes(userLocation)) {
             console.log("[WBM bookmarklet][log]\nUser is not on WBM. Target acquired.\nActions:\n1. Copying to current URL to clipboard.\n2. Opening WBM.\nTo second step, click on me on WBM page!");
-            var openedWBM = window.open('https://web.archive.org/save/');
-            //openedWBM.addEventListener('load', openedWBM.save, true); // https://stackoverflow.com/a/1372096
-            //openedWBM.addEventListener('load', function() {openedWBM.close();}, true);
-            alert("It's loaded111111!");
-            openedWBM.addEventListener('load', function () {
-                alert("It's loaded!")
-            })
-            /* window.document.location='https://web.archive.org/save/'; */
-            /* window.document.close(); */
-            /* window.focus(); */
-            /* this.document.location.href = "https://web.archive.org/save/"; */
+            var i = document.createElement('iframe'); // https://stackoverflow.com/a/635750
+            i.style.display = 'none';
+            //i.onload = function() { i.parentNode.removeChild(i); };
+            i.src = 'https://web.archive.org/save';
+            document.body.appendChild(i);
             console.log("[WBM bookmarklet][log]\nOpened! Are we alive?");
             //return false;
         };
