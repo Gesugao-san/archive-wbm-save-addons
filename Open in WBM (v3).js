@@ -33,7 +33,7 @@ javascript: (function() {
         submitButton.setAttribute('class', "web-save-button web_button web_text");
         submitButton.setAttribute('value', "Submit");
         formHidden.appendChild(submitButton);
-        document.getElementsByTagName('body')[0].appendChild(f);
+        document.getElementsByTagName('body')[0].appendChild(formHidden);
         
         // and see: https://web.archive.org/_static/js/bundle-spn.js
     }
