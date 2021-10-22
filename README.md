@@ -33,16 +33,15 @@ Maybe:
 
 ### Uses
 
-* https://gist.github.com/Gesugao-san/4d70316e9a25b126429035ba90670685#file-open-in-wbm-v2-js;
-* https://stackoverflow.com/a/6964949;
+ * https://gist.github.com/Gesugao-san/4d70316e9a25b126429035ba90670685#file-open-in-wbm-v2-js;
+ * https://stackoverflow.com/a/6964949;
 
 ---
 
 # Tools and inspiration
 
-https://caiorss.github.io/bookmarklet-maker/
-
-https://mrcoles.com/bookmarklet/
+ * https://caiorss.github.io/bookmarklet-maker/
+ * https://mrcoles.com/bookmarklet/
 
 ---
 
