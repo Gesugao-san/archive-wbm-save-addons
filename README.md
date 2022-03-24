@@ -47,6 +47,6 @@ Maybe:
 
 # License
 
-MIT 2021 Gesugao-san
+MIT 2022 Gesugao-san
 
 ---
