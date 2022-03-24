@@ -56,7 +56,8 @@
     $.ajax({
         type: 'POST',
         url: 'https://web.archive.org/save',
-        data: formData,
+        data: {'web-save-url-input': window.location.href},
+        //data: formData,
         //dataType: 'JSON',
         //contentType: 'application/x-www-form-urlencoded',
         //xhrFields: { withCredentials: true },
@@ -67,24 +68,28 @@
         crossDomain: true,
         headers: {
             accept: "text/html",
-            "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/", // "*"
-            'Access-Control-Allow-Methods': 'GET, POST,PUT',
-            'Content-Type': 'text/html'
+            "Access-Control-Allow-Origin": window.location.origin + " https://web.archive.org https://archive.org/", // "*"
+            'Access-Control-Allow-Methods': 'GET, POST, PUT',
+            'Content-Type': 'application/x-www-form-urlencoded'
+            //'Content-Type': 'text/html'
         },
         success: function (response) {
-            //response = $(response); // $('#text')
-            //let response = $('#text'); //.serialize();
-            //console.log('Ok.');
-            //var temp = document.createElement('div');
-            //temp.innerHTML = response;
-            //response = temp.firstChild;
-            var mytag = $('<h2></h2>').html(response);
-            response = $('spn-title', mytag);
+            console.log('Ok.');
+            //response = $(response);
+            //response = $('#text'); //.serialize();
+            //response = $('#content'); //.html();
+
+            /*var temp = document.createElement('div');
+            temp.innerHTML = response;
+            response = temp.firstChild;*/
+
+            //var mytag = $('<h2></h2>').html(response);
+            //response = $('spn-title', mytag);
             console.log(response); //.getElementById("spn-title"));
-            //$('#content').html(response);
         },
-        error: function () {
+        error: function (response) {
             console.log('Error.');
+            console.log(response);
         },
     }).done(function() {
         console.log('Done.');
