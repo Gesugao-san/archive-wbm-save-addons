@@ -61,13 +61,15 @@
         'Access-Control-Allow-Methods': 'GET, POST,PUT',
         'Content-Type': 'text/html'
     },
-    success: function (data) {
+    success: function (response) {
         //response = $(response); // $('#text')
-        var response = $('#text');
+        //let response = $('#text'); //.serialize();
         //console.log('Ok.');
         //var temp = document.createElement('div');
         //temp.innerHTML = response;
         //response = temp.firstChild;
+        var mytag = $('<h2></h2>').html(response);
+        response = $('spn-title', mytag);
         console.log(response); //.getElementById("spn-title"));
         //$('#content').html(response);
     },
