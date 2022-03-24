@@ -10,7 +10,9 @@
 // @grant        GM.getValue
 // @grant        GM.deleteValue
 // @grant        GM.listValues
-// @grant        GM
+// @grant        GM.openInTab
+// @grant        GM.registerMenuCommand
+// @run-at       context-menu
 // ==/UserScript==
 
 (async function() {
@@ -19,6 +21,12 @@
     console.log("GM.listValues:", await GM.listValues);
     GM.setValue("foo", "bar");
     console.log("GM.listValues:", await GM.listValues);
-    console.log(await GM.getValue("foo")); 
+    console.log(await GM.getValue("foo"));
     GM.deleteValue("foo");
+
+    function test() {
+        GM.openInTab("https://website.net");
+    }
+
+    GM.registerMenuCommand("hello", test, "h");
 })();
