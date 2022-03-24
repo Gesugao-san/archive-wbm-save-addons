@@ -6,11 +6,19 @@
 // @author       Gesugao-san
 // @match        https://stackoverflow.com/questions/28833403/jquery-ajax-sending-post-with-values-from-inputs-with-tampermonkey
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=stackoverflow.com
-// @grant        none
+// @grant        GM.setValue
+// @grant        GM.getValue
+// @grant        GM.deleteValue
+// @grant        GM.listValues
+// @grant        GM
 // ==/UserScript==
 
-(function() {
+(async function() {
     'use strict';
-    
-    console.log(GM.listValues);
+
+    console.log("GM.listValues:", await GM.listValues);
+    GM.setValue("foo", "bar");
+    console.log("GM.listValues:", await GM.listValues);
+    console.log(await GM.getValue("foo")); 
+    GM.deleteValue("foo");
 })();
