@@ -44,11 +44,11 @@
     }
     } );
     var value = 123;*/
-    $.ajax ( {
+    $.ajax({
     type:       'POST',
     url:        'https://web.archive.org/save',
     //dataType:   'JSON',
-    contentType: 'application/x-www-form-urlencoded',
+    //contentType: 'application/x-www-form-urlencoded',
     //xhrFields: { withCredentials: true },
     //withCredentials: true,
     cache: false,
@@ -57,19 +57,26 @@
     crossDomain: true,
     headers: {
         accept: "text/html",
-        "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/"//"*"
+        "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/", // "*"
+        'Access-Control-Allow-Methods': 'GET, POST,PUT',
+        'Content-Type': 'text/html'
     },
-    success:    function (response) {
-        alert (
-              'Ok: ' + response.getElementById("spn-title")
-        );
+    success: function (data) {
+        //response = $(response); // $('#text')
+        var response = $('#text');
+        //console.log('Ok.');
+        //var temp = document.createElement('div');
+        //temp.innerHTML = response;
+        //response = temp.firstChild;
+        console.log(response); //.getElementById("spn-title"));
+        //$('#content').html(response);
     },
-    error:    function () {
-        alert (
-              'Error.'
-        );
+    error: function () {
+        console.log('Error.');
     },
-    } );
+    }).done(function() {
+        console.log('Done.');
+    });
 
     // Your code here...
 })();
