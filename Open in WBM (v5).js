@@ -4,8 +4,9 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       Gesugao-san
+// @match        *//*/*
 // @include      *
-// @match        https://stackoverflow.com/*
+// @exclude      file://*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=stackoverflow.com
 // @grant        GM.setValue
 // @grant        GM.getValue
@@ -13,11 +14,12 @@
 // @grant        GM.listValues
 // @grant        GM.openInTab
 // @grant        GM.registerMenuCommand
-// @run-at       context-menu
+// @grant        GM.unregisterMenuCommand
 // ==/UserScript==
+// @run-at       document-start
 
-(async function() {
-    'use strict';
+(function() {
+    //'use strict';
 
     /*
     console.log("GM.listValues:", await GM.listValues);
@@ -26,10 +28,11 @@
     console.log(await GM.getValue("foo"));
     GM.deleteValue("foo");
     */
-
     GM.registerMenuCommand("hello", test, "h");
 
     function test() {
         GM.openInTab("https://website.net");
+        //GM.unregisterMenuCommand("hello");
     }
-})();
+}
+)();
