@@ -24,11 +24,12 @@
         scrp = document.createElement('meta');
         scrp.httpEquiv = arr[i][0];
         scrp.content = arr[i][1];
-        console.log('[' + arr[i][0] + '] = ' + arr[i][1]);
+        //console.log('[' + arr[i][0] + '] = ' + arr[i][1]);
+        console.log(scrp);
+        document.head.appendChild(scrp);
     }
-    var txt = document.createTextNode("console.log('Content-Security-Policy inserted');");
-    scrp.appendChild(txt);
-    document.head.appendChild(scrp);
+    //var txt = document.createTextNode("console.log('Content-Security-Policy inserted');");
+    //scrp.appendChild(txt);
 
     /*$.ajax ( {
     type:       'GET',
@@ -47,12 +48,20 @@
     type:       'POST',
     url:        'https://web.archive.org/save',
     //dataType:   'JSON',
-    //contentType: 'application/x-www-form-urlencoded',
-    xhrFields: { withCredentials: true },
-    withCredentials: true,
-    success:    function () {
+    contentType: 'application/x-www-form-urlencoded',
+    //xhrFields: { withCredentials: true },
+    //withCredentials: true,
+    cache: false,
+    dataType: "html",
+    async: true,
+    crossDomain: true,
+    headers: {
+        accept: "text/html",
+        "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/"//"*"
+    },
+    success:    function (response) {
         alert (
-              'Ok.'
+              'Ok: ' + response.getElementById("spn-title")
         );
     },
     error:    function () {
