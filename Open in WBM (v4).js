@@ -44,38 +44,48 @@
     }
     } );
     var value = 123;*/
+    //var formData = document.createElement("form");
+    let formData = new FormData();
+    formData.set('web-save-url-input', window.location.href);
+    formData.set('capture_outlinks', true); // Save outlinks
+    formData.set('capture_all', true); // Save error pages (HTTP Status=4xx, 5xx)
+    formData.set('capture_screenshot', true); // Save screen shot
+    formData.set('wm-save-mywebarchive', true); // Save also in my web archive
+    formData.set('email_result', true); // Please email me the results
+
     $.ajax({
-    type:       'POST',
-    url:        'https://web.archive.org/save',
-    //dataType:   'JSON',
-    //contentType: 'application/x-www-form-urlencoded',
-    //xhrFields: { withCredentials: true },
-    //withCredentials: true,
-    cache: false,
-    dataType: "html",
-    async: true,
-    crossDomain: true,
-    headers: {
-        accept: "text/html",
-        "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/", // "*"
-        'Access-Control-Allow-Methods': 'GET, POST,PUT',
-        'Content-Type': 'text/html'
-    },
-    success: function (response) {
-        //response = $(response); // $('#text')
-        //let response = $('#text'); //.serialize();
-        //console.log('Ok.');
-        //var temp = document.createElement('div');
-        //temp.innerHTML = response;
-        //response = temp.firstChild;
-        var mytag = $('<h2></h2>').html(response);
-        response = $('spn-title', mytag);
-        console.log(response); //.getElementById("spn-title"));
-        //$('#content').html(response);
-    },
-    error: function () {
-        console.log('Error.');
-    },
+        type: 'POST',
+        url: 'https://web.archive.org/save',
+        data: formData,
+        //dataType: 'JSON',
+        //contentType: 'application/x-www-form-urlencoded',
+        //xhrFields: { withCredentials: true },
+        //withCredentials: true,
+        cache: false,
+        dataType: "html",
+        async: true,
+        crossDomain: true,
+        headers: {
+            accept: "text/html",
+            "Access-Control-Allow-Origin": window.location.origin + ", https://web.archive.org/", // "*"
+            'Access-Control-Allow-Methods': 'GET, POST,PUT',
+            'Content-Type': 'text/html'
+        },
+        success: function (response) {
+            //response = $(response); // $('#text')
+            //let response = $('#text'); //.serialize();
+            //console.log('Ok.');
+            //var temp = document.createElement('div');
+            //temp.innerHTML = response;
+            //response = temp.firstChild;
+            var mytag = $('<h2></h2>').html(response);
+            response = $('spn-title', mytag);
+            console.log(response); //.getElementById("spn-title"));
+            //$('#content').html(response);
+        },
+        error: function () {
+            console.log('Error.');
+        },
     }).done(function() {
         console.log('Done.');
     });
