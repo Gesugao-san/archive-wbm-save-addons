@@ -1,0 +1,25 @@
+{
+  "name": "Page Redder",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "Turns the page red when you click the icon",
+  "host_permissions": [
+    "*://web.archive.org/save"
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "./service-worker.js"
+  }/*,
+  "content_scripts": [{
+    "matches": [
+      "*://web.archive.org/save"
+    ],
+    "js": ["content-script.js"],
+    "run_at": "document_start"
+  }]*/
+}
