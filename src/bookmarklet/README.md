@@ -1,15 +1,9 @@
 
-
 ---
 
 # Requirements
 
-- Google Chrome with latest version (mine is: 94).
-
-Maybe:
-
-- Microsoft Windows 10 (mine is: 20H2);
-- NodeJS (mine is: v16).
+- Google Chrome (latest version)
 
 ---
 
