@@ -3,23 +3,20 @@
   "action": {},
   "manifest_version": 3,
   "version": "0.1",
-  "description": "Turns the page red when you click the icon",
-  "host_permissions": [
-    "*://web.archive.org/save"
-  ],
+  "description": "Turns checkboxes on on Archive's WayBack Machine while opening site.",
   "permissions": [
-    "activeTab",
-    "scripting",
-    "storage"
+    "scripting"
   ],
   "background": {
     "service_worker": "./service-worker.js"
-  }/*,
+  },
   "content_scripts": [{
     "matches": [
-      "*://web.archive.org/save"
+      "http://web.archive.org/save",
+      "https://web.archive.org/save"
     ],
-    "js": ["content-script.js"],
-    "run_at": "document_start"
-  }]*/
+    "js": [
+      "content_script.js"
+    ]
+  }]
 }

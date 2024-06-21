@@ -6,14 +6,4 @@ function checkAllCheckboxes() {
   }
 }
 
-function reddenPage() {
-  document.body.style.backgroundColor = 'red';
-}
-
-if (!tab) {return;}
-if (!tab.url) {return;}
-if (!tab.url.includes('https://web.archive.org/save')) {
-  checkAllCheckboxes()
-  reddenPage()
-  return;
-}
+checkAllCheckboxes();
