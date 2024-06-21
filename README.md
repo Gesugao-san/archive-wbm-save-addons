@@ -17,7 +17,7 @@ Maybe:
 ## Deploying
 
 1. Go to https://caiorss.github.io/bookmarklet-maker/;
-2. Paste code from "Open in WBM (v2).js";
+2. Paste code from "Open in WBM (v3).js";
 3. Click "Generate Bookmarklet" button;
 5. Ctrl+Shift+B to show bookmarks bar
 4. Create bookmark in Google Chrome (with any name, example: "OPEN+SAVE IN WBM");
@@ -31,53 +31,17 @@ Maybe:
 
 ---
 
+### Uses
+
+ * https://gist.github.com/Gesugao-san/4d70316e9a25b126429035ba90670685#file-open-in-wbm-v2-js;
+ * https://stackoverflow.com/a/6964949;
+
+---
+
 # Tools and inspiration
 
-https://caiorss.github.io/bookmarklet-maker/
-
-https://mrcoles.com/bookmarklet/
-
----
-
-# Uses
-
-https://stackoverflow.com/q/11292786;
-
-https://stackoverflow.com/a/8206573;
-
-https://stackoverflow.com/a/11604414;
-
-https://stackoverflow.com/a/26370667;
-
-https://stackoverflow.com/a/59556399;
-
-https://stackoverflow.com/a/18455088;
-
-https://alligator.io/js/async-clipboard-api/;
-
-https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/slice;
-
-https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName;
-
-https://stackoverflow.com/a/3822931;
-
-https://www.w3schools.com/jsref/jsref_includes_array.asp;
-
-https://stackoverflow.com/q/34780030;
-
-https://stackoverflow.com/q/15694470;
-
----
-
-# To read or use soon
-
-https://gist.github.com/caseywatts/c0cec1f89ccdb8b469b1#gistcomment-2250172;
-
-https://stackoverflow.com/q/49523946;
-
-https://stackoverflow.com/a/26370667;
-
-https://stackoverflow.com/a/55818805;
+ * https://caiorss.github.io/bookmarklet-maker/
+ * https://mrcoles.com/bookmarklet/
 
 ---
 
