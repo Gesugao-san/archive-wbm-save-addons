@@ -17,12 +17,12 @@ Maybe:
 
 ## Deploying
 
-1. Go to https://caiorss.github.io/bookmarklet-maker/ or https://meyerweb.com/eric/tools/dencoder/;
+1. Go to [bookmarklet maker] or [meyer's dencoder];
 2. Paste code from one of files in this directory;
 3. Click "Generate Bookmarklet" button;
 5. Ctrl+Shift+B to show bookmarks bar
 4. Create bookmark in Google Chrome (with any name, example: "OPEN+SAVE IN WBM");
-6. In "URL" field insert code from https://caiorss.github.io/bookmarklet-maker/ or https://meyerweb.com/eric/tools/dencoder/.
+6. In "URL" field insert code from [bookmarklet maker] or [meyer's dencoder].
 
 ## Using
 
@@ -34,13 +34,18 @@ Maybe:
 
 # Tools and inspiration
 
- * https://caiorss.github.io/bookmarklet-maker/
- * https://mrcoles.com/bookmarklet/
+ * [bookmarklet maker]
+ * [mrcoles's tool]
 
 ---
 
 # License
 
-MIT 2024 Gesugao-san
+MIT 2024 [Gesugao-san]
 
 ---
+
+[bookmarklet maker]: https://caiorss.github.io/bookmarklet-maker/
+[meyer's dencoder]: https://meyerweb.com/eric/tools/dencoder/
+[mrcoles's tool]: https://mrcoles.com/bookmarklet/
+[Gesugao-san]: https://github.com/Gesugao-san
